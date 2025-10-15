@@ -16,7 +16,7 @@ let isPlaying = true
 
 function gotoNth(n) {
  slides[currentSlide].classList.toggle('active')
- currentSlide = n % SLIDE_COUNT
+ currentSlide = (n + SLIDE_COUNT) % SLIDE_COUNT
 slides[currentSlide].classList.toggle('active')
 }
 
@@ -36,12 +36,14 @@ timerId = setInterval(gotoNext, TIMER_INTERVAL)
 
 
 function pauseHandler() {
+  if (!isPlaying) 
   pauseBtn.innerHTML = 'Play'
 clearInterval(timerId)
 isPlaying = !isPlaying
 }
 
 function playHandler() {
+  if (!isPlaying)
 pauseBtn.innerHTML = 'Pause'
 isPlaying = !isPlaying
  tick()
@@ -49,6 +51,16 @@ isPlaying = !isPlaying
 
 function togglePlayHandler() {
  isPlaying ? pauseHandler(): playHandler()
+}
+
+function nextHandler() {
+gotoNext()
+pauseHandler()
+}
+
+function prevHandler() {
+  gotoPrev()
+  pauseHandler()
 }
 
 pauseBtn.addEventListener('click', togglePlayHandler)
