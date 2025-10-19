@@ -92,6 +92,7 @@ if (target && target.classList.contains('indicator')) {
 }
 }
 
+
 function keydownHandler(e) {
   const code = e.code
 
