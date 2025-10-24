@@ -16,10 +16,19 @@ these make the slideshow work
     width: 100%;
     max-width: 700px;
     padding: 0px;
-    margin: 0px;
+    margin: 50px auto;
     list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: url(./img/5467661769636970380.jpg);
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-color: #333;
 }
-
+.slide-item,
 .slide {
     position: absolute;
     left: 0px;
@@ -33,55 +42,72 @@ these make the slideshow work
 
 .active {
     opacity: 1;
-    z-index: 0;
+    z-index: 1;
 }
 
 /*
 non-essential styles:
 just for appearance; change whatever you want
 */
-
+.slide-item,
 .slide {
     font-size: 40px;
     padding: 40px;
     box-sizing: border-box;
-    background: #333;
+    /* background: #333; */
     color: #fff;
 }
-
+/* .slide-item:nth-of-type(1),
 .slide:nth-of-type(1) {
     background: red;
 }
 
+.slide-item:nth-of-type(2),
 .slide:nth-of-type(2) {
     background: orange;
 }
 
+.slide-item:nth-of-type(3),
 .slide:nth-of-type(3) {
     background: green;
 }
 
+.slide-item:nth-of-type(4),
 .slide:nth-of-type(4) {
     background: blue;
 }
 
+.slide-item:nth-of-type(5),
 .slide:nth-of-type(5) {
     background: purple;
 }
 
+.slide-item:nth-of-type(6),
 .slide:nth-of-type(6) {
     background: pink;
 }
 
+.slide-item:nth-of-type(7),
 .slide:nth-of-type(7) {
     background: yellowgreen;
 }
 
+.slide-item:nth-of-type(8),
 .slide:nth-of-type(8) {
     background: rgb(99, 26, 26);
 }
 
+.slide-item:nth-of-type(9),
+.slide:nth-of-type(9) {
+    background: rgb(26, 99, 69);
+} */
 
+.slide-item {
+ background-size: 35% auto;
+  /* background-size:contain;  */
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+}
 
 /* custom style */
 .carousel {
@@ -90,6 +116,7 @@ just for appearance; change whatever you want
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: 20px;
     margin: 50px auto;
     user-select: none;
@@ -97,10 +124,12 @@ just for appearance; change whatever you want
     padding: 10px;
 }
 
-.slides {
 
+
+.slides {
     flex-grow: 1;
     flex-basis: 100%;
+   
 }
 
 .controls,
@@ -112,6 +141,7 @@ just for appearance; change whatever you want
     width: 100%;
 
 }
+
 
 .indicator,
 .control {
@@ -137,4 +167,32 @@ just for appearance; change whatever you want
 .control:hover {
     background-color: tomato;
     color: black;
+}
+
+.slide-text-overlay {
+  position: absolute;
+  top: 250px;      /* Відступ зверху (пограйтеся з цим) */
+  left: 30px;     /* Відступ зліва (пограйтеся з цим) */
+  width: 45%;     /* Ширина, щоб текст не заходив на книгу */
+  color: white;
+  
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  
+  pointer-events: none; 
+
+  z-index: 0; 
+}
+
+
+.slide-text-overlay h2 {
+  font-size: 2 rem; 
+  margin: 0;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+
+.slide-text-overlay p {
+  font-size: 1rem; 
+  font-style: italic;
 }
